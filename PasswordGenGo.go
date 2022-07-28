@@ -28,11 +28,6 @@ func main() {
 
 	total_char_length_without_lower_char := min_upper_char + min_special_char + min_number_char
 
-	if total_char_length_without_lower_char >= password_length {
-		fmt.Println("Please provide valid password length")
-		os.Exit(1)
-	}
-
 	// Get the user input - target folder needs to be organized
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Printf("How many passwords you want to generate? - ")

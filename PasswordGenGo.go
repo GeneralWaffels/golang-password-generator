@@ -24,11 +24,7 @@ var (
 
 func main() {
 
-	// here the password is checked to ensure the password length matches the criteria
-
-	total_char_length_without_lower_char := min_upper_char + min_special_char + min_number_char
-
-	// Get the user input - target folder needs to be organized
+	// Get the user input
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Printf("How many passwords you want to generate? - ")
 	scanner.Scan()
@@ -85,7 +81,6 @@ func generate_password() string {
 	}
 
 	// shuffle the password string
-
 	password_rune := []rune(password)
 	rand.Shuffle(len(password_rune), func(i, j int) {
 		password_rune[i], password_rune[j] = password_rune[j], password_rune[i]

@@ -33,9 +33,9 @@ func main() {
 	fmt.Printf("How many passwords you want to generate? - ")
 	scanner.Scan()
 
-	number_of_passwords, err := strconv.Atoi(scanner.Text())
+	number_of_passwords, error := strconv.Atoi(scanner.Text())
 
-	if err != nil {
+	if error != nil {
 		fmt.Println("Please provide correct value for number of passwords")
 		os.Exit(1)
 	}

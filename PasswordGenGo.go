@@ -56,44 +56,41 @@ func generate_password() string {
 	password := ""
 
 	// generate random special character based on min_special_char
-
 	for i := 0; i < min_special_char; i++ {
 		random := rand.Intn(len(special_char_set))
-		//fmt.Println(specialCharSet[random])
-		//fmt.Printf("%v and %T \n", random, specialCharSet[random])
 		password = password + string(special_char_set[random])
 	}
 
-	// generate random upper character based on minUpperChar
+	// generate random upper character based on min_upper_char
 	for i := 0; i < min_upper_char; i++ {
 		random := rand.Intn(len(upper_char_set))
 		password = password + string(upper_char_set[random])
 	}
 
-	// generate random upper character based on minNumberChar
+	// generate random upper character based on min_number_char
 	for i := 0; i < min_number_char; i++ {
 		random := rand.Intn(len(number_char_set))
 		password = password + string(number_char_set[random])
 	}
 
 	// find remaining lowerChar
-	totalCharLenWithoutLowerChar := min_upper_char + min_special_char + min_number_char
+	total_char_length_without_lower_char := min_upper_char + min_special_char + min_number_char
 
-	remainingCharLen := password_length - totalCharLenWithoutLowerChar
+	remaining_char_length := password_length - total_char_length_without_lower_char
 
-	// generate random lower character based on remainingCharLen
-	for i := 0; i < remainingCharLen; i++ {
+	// generate random lower character based on remaining_char_length
+	for i := 0; i < remaining_char_length; i++ {
 		random := rand.Intn(len(lower_char_set))
 		password = password + string(lower_char_set[random])
 	}
 
 	// shuffle the password string
 
-	passwordRune := []rune(password)
-	rand.Shuffle(len(passwordRune), func(i, j int) {
-		passwordRune[i], passwordRune[j] = passwordRune[j], passwordRune[i]
+	password_rune := []rune(password)
+	rand.Shuffle(len(password_rune), func(i, j int) {
+		password_rune[i], password_rune[j] = password_rune[j], password_rune[i]
 	})
 
-	password = string(passwordRune)
+	password = string(password_rune)
 	return password
 }

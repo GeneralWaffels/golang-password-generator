@@ -24,23 +24,14 @@ var (
 
 func main() {
 
-	// here the password is checked to ensure the password length matches the criteria
-
-	total_char_length_without_lower_char := min_upper_char + min_special_char + min_number_char
-
-	if total_char_length_without_lower_char >= password_length {
-		fmt.Println("Please provide valid password length")
-		os.Exit(1)
-	}
-
-	// Get the user input - target folder needs to be organized
+	// Get the user input
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Printf("How many passwords you want to generate? - ")
 	scanner.Scan()
 
-	number_of_passwords, err := strconv.Atoi(scanner.Text())
+	number_of_passwords, error := strconv.Atoi(scanner.Text())
 
-	if err != nil {
+	if error != nil {
 		fmt.Println("Please provide correct value for number of passwords")
 		os.Exit(1)
 	}
@@ -61,39 +52,35 @@ func generate_password() string {
 	password := ""
 
 	// generate random special character based on min_special_char
-
 	for i := 0; i < min_special_char; i++ {
 		random := rand.Intn(len(special_char_set))
-		//fmt.Println(specialCharSet[random])
-		//fmt.Printf("%v and %T \n", random, specialCharSet[random])
 		password = password + string(special_char_set[random])
 	}
 
-	// generate random upper character based on minUpperChar
+	// generate random upper character based on min_upper_char
 	for i := 0; i < min_upper_char; i++ {
 		random := rand.Intn(len(upper_char_set))
 		password = password + string(upper_char_set[random])
 	}
 
-	// generate random upper character based on minNumberChar
+	// generate random upper character based on min_number_char
 	for i := 0; i < min_number_char; i++ {
 		random := rand.Intn(len(number_char_set))
 		password = password + string(number_char_set[random])
 	}
 
 	// find remaining lowerChar
-	totalCharLenWithoutLowerChar := min_upper_char + min_special_char + min_number_char
+	total_char_length_without_lower_char := min_upper_char + min_special_char + min_number_char
 
-	remainingCharLen := password_length - totalCharLenWithoutLowerChar
+	remaining_char_length := password_length - total_char_length_without_lower_char
 
-	// generate random lower character based on remainingCharLen
-	for i := 0; i < remainingCharLen; i++ {
+	// generate random lower character based on remaining_char_length
+	for i := 0; i < remaining_char_length; i++ {
 		random := rand.Intn(len(lower_char_set))
 		password = password + string(lower_char_set[random])
 	}
 
 	// shuffle the password string
-
 	password_rune := []rune(password)
 	rand.Shuffle(len(password_rune), func(i, j int) {
 		password_rune[i], password_rune[j] = password_rune[j], password_rune[i]

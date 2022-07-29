@@ -94,11 +94,11 @@ func generate_password() string {
 
 	// shuffle the password string
 
-	passwordRune := []rune(password)
-	rand.Shuffle(len(passwordRune), func(i, j int) {
-		passwordRune[i], passwordRune[j] = passwordRune[j], passwordRune[i]
+	password_rune := []rune(password)
+	rand.Shuffle(len(password_rune), func(i, j int) {
+		password_rune[i], password_rune[j] = password_rune[j], password_rune[i]
 	})
 
-	password = string(passwordRune)
+	password = string(password_rune)
 	return password
 }

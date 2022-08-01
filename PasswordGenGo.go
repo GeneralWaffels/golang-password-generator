@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-// here i've defined all the global variables for the project, these will serve as the parameters for what can be used to generate a password
+// i have defined all the global variables for the project, these will serve as the parameters for what can be used to generate a password
 var (
 	lower_char_set          = "abcdefghijklmnopqrstuvwxyz"
 	upper_char_set          = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -24,7 +24,7 @@ var (
 
 func main() {
 
-	// Get the user input
+	// I get the user input here as a response to a question asked by the program, this will tell us how many passwords to generate. We are also verifying the input is a number
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Printf("How many passwords you want to generate? - ")
 	scanner.Scan()
@@ -36,7 +36,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	// it generate random number
+	// it generate random
 	rand.Seed(time.Now().Unix())
 
 	for i := 0; i < number_of_passwords; i++ {

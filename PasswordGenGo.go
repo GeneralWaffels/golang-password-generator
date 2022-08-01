@@ -10,37 +10,7 @@ package main
 // strings - used to shuffle the password string
 // unicode - used to shuffle the password string
 // math - used to generate random numbers based on the current time
-// fmt - used to print to the console
-// os - used to exit the program when the user does not provide a valid input
-// strings - used to shuffle the password string
-// unicode - used to shuffle the password string
-// math - used to generate random numbers based on the current time
-// fmt - used to print to the console
-// os - used to exit the program when the user does not provide a valid input
-// strings - used to shuffle the password string
-// unicode - used to shuffle the password string
-// math - used to generate random numbers based on the current time
-// fmt - used to print to the console
-// os - used to exit the program when the user does not provide a valid input
-// strings - used to shuffle the password string
-// unicode - used to shuffle the password string
-// math - used to generate random numbers based on the current time
-// fmt - used to print to the console
-// os - used to exit the program when the user does not provide a valid input
-// strings - used to shuffle the password string
-// unicode - used to shuffle the password string
-// math - used to generate random numbers based on the current time
-// fmt - used to print to the console
-// os - used to exit the program when the user does not provide a valid input
-// strings - used to shuffle the password string
-// unicode - used to shuffle the password string
-// math - used to generate random numbers based on the current time
-// fmt - used to print to the console
-// os - used to exit the program when the user does not provide a valid input
-// strings - used to shuffle the password string
-// unicode - used to shuffle the password string
-// math - used to generate random numbers based on the current time
-// fmt - used to print to the console
+
 import (
 	"bufio"
 	"fmt"
